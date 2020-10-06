@@ -1,0 +1,24 @@
+Approach:
+Deep learning siamese network which tries to find the similarity between the two input images.
+Resnet50 has been used for feature extraction
+and the output is passed through a classifier, which classifies into same or different.
+
+Training :
+Training is done on spot-the-difference dataset
+Half the datset contains similar images and the other half contains different images.
+custom input pipeline had to be built to input two comparing images to the network.
+the target value has been set to "0.0" for different images and 1.0 for similar images.
+The training was done for 500 epochs and a loss of ~0.2 was reached.
+
+Inference:
+for the purpose of visualising the difference between the images, initially a deep learning based
+approach known as grad-cam was used. This apporch calculates the gradients in reverse to determine
+what should be the input, if the generated output is this. Sadly, this approach did not work (or required
+more time for implementation). Finally a simple Opencv approach had to be used.
+
+Filedetails:
+training file : switch_on_task.py
+inference : switch_on_infer.py
+generated output : output.png
+
+
